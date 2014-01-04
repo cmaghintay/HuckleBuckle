@@ -29,6 +29,8 @@
                     console.log("User has won.");
                     var again = confirm("Right on! Play again?");
                     if (again == true) {
+                        key = Math.floor(Math.random()*101);
+                        console.log("The key for the next round is: " + key);
                         game();
                     }
                     else
