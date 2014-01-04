@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <title>Huckle Buckle Beanstalk</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+<!--CSS RESET
+    <link rel="stylesheet" type="text/css" href="reset.css">
+-->
+    <script>
+        var key = Math.floor(Math.random()*101);
+        console.log("The key for the next round is: " + key);
+        function game (){
+            var guess = prompt("I'm thinking of a number between 0 and 100. What is it?","Your guess here.");
+            guess = parseFloat(guess);
+            console.log("The user guessed: " + guess + ".");
+            if (isNaN(guess)){
+                alert("Please choose a number between 1 and 100.");
+                game();
+            }
+            else {
+                if (guess>key){
+                    alert("High. Try again.");
+                    game();
+                }
+                else if (guess<key){
+                    alert("Low. Try again.");
+                    game();
+                }
+                else (guess==key)
+                    console.log("User has won.");
+                    var again = confirm("Right on! Play again?");
+                    if (again == true) {
+                        game();
+                    }
+                    else
+                        console.log("User has quit.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Huckle Buckle Beanstalk</h1>
+    <h6>This is version 1.</h6>
+    <blockquote class="blockQuoteStyle">
+         <p>Huckle Buckle Beanstalk, also called Hide the Object or Hide the Key, is a childhood game which involves the hiding and seeking of an object. It is a variation of a traditional parlour game which can be played with two or more players, one being the hider, or the person who is "it," and the other person or persons being seekers. The game has also been known as Hot Buttered Beans in the US since at least 1830[1] and as Hunt the Thimble, Hide the Thimble or Hide the Handkerchief in both the US and the UK. William Wells Newell described a version called Thimble in Sight in his 1883 Games and Songs of American Children. The game is known in various European countries.[2]</p>
+        <footer>- Wikipedia</footer>
+    </blockquote>
+    <div class="containerButtons">
+        <button id="buttonInitGame" onclick="game();">Lets Play!</button>
+        <button id="buttonResetGame"><span class="wip">Reset Button</span></button>
+    </div>
+</body>
