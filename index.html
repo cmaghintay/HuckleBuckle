@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <head>
     <title>Huckle Buckle Beanstalk</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-<!--CSS RESET
     <link rel="stylesheet" type="text/css" href="reset.css">
--->
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="jquery-1.10.2.js"></script>
     <script>
+
         var key = Math.floor(Math.random()*101);
         console.log("The key for the next round is: " + key);
-        function game (){
-            var guess = prompt("I'm thinking of a number between 0 and 100. What is it?","Your guess here.");
-            guess = parseFloat(guess);
+        
+        function pullGuess (){
+            
+            //VALIDATING GUESS TYPE
+            var guess = document.getElementById("guessField").value;
             console.log("The user guessed: " + guess + ".");
+            $("#log").text("The user guessed: " + guess + ".");
+            
+            //CHECKING GUESS
+            
             if (isNaN(guess)){
-                alert("Please choose a number between 1 and 100.");
-                game();
+                $("#status").text("That's not a number. Please choose a number between 1 and 100.");
             }
-            else {
-                if (guess>key){
-                    alert("High. Try again.");
-                    game();
-                }
-                else if (guess<key){
-                    alert("Low. Try again.");
-                    game();
-                }
-                else (guess==key)
-                    console.log("User has won.");
-                    var again = confirm("Right on! Play again?");
-                    if (again == true) {
-                        key = Math.floor(Math.random()*101);
-                        console.log("The key for the next round is: " + key);
-                        game();
+                
+            else if (guess>key){
+                $("#status").text("High. Try again.");
+            }
+            else if (guess<key){
+                $("#status").text("Low. Try again.");
+            }
+            else if (guess==key){
+                console.log("User has won.");
+                $("#status").text("Right on! Play again?");
+                if (again == true) {
+                    key = Math.floor(Math.random()*101);
+                    console.log("The key for the next round is: " + key);
                     }
-                    else
-                        console.log("User has quit.");
-            }
-        }
+                else {
+                    console.log("User has ended game.");
+                };
+            };
+        };
+                        
     </script>
 </head>
 <body>
     <h1>Huckle Buckle Beanstalk</h1>
-    <h6>This is version 1.</h6>
-    <blockquote class="blockQuoteStyle">
-         <p>Huckle Buckle Beanstalk, also called Hide the Object or Hide the Key, is a childhood game which involves the hiding and seeking of an object. It is a variation of a traditional parlour game which can be played with two or more players, one being the hider, or the person who is "it," and the other person or persons being seekers. The game has also been known as Hot Buttered Beans in the US since at least 1830[1] and as Hunt the Thimble, Hide the Thimble or Hide the Handkerchief in both the US and the UK. William Wells Newell described a version called Thimble in Sight in his 1883 Games and Songs of American Children. The game is known in various European countries.[2]</p>
-        <footer>- Wikipedia</footer>
-    </blockquote>
-    <div class="containerButtons">
-        <button id="buttonInitGame" onclick="game();">Lets Play!</button>
-        <button id="buttonResetGame"><span class="wip">Reset Button</span></button>
+    <div class="mainContainer">
+        <h6>VERSION 2.</h6>
+        <div class="gameWindow">
+            <h4>Are you ready to play?</h4>
+            <p id="status">Status</p>
+            <div>
+                <input id="guessField" type="text" name="userGuess" placeholder="00">
+            </div>
+            <p id="log">Null</p>
+        </div>
+        <div class="containerButtons">
+            <button id="buttonInitGame" onclick="pullGuess()">Lets Play!</button>
+            <button id="buttonResetGame">Reset Button</button>
+        </div>
     </div>
 </body>

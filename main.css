@@ -1,8 +1,23 @@
+body {
+    margin:0 auto
+    max-width:600px;
+    background: #f2fbff;
+}
+
 h1 {
+    position:relative;
+    display:block;
     text-align:center;
-    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    text-shadow: 2px 2px 0px #e5e5e5;
+    vertical-align:baseline;
+    padding:20px 0 10px 0;
+    width:auto;
+    background-color:#FFFFFF;
+    text-align:center;
+    font-weight:bolder;
+    font-family:"Arial", sans-serif;
+    font-size:4.5em;
     color:#000;
+    margin:0 auto -10 auto;
 }
 
 p {
@@ -10,15 +25,16 @@ p {
     font-size:0.75em
 }
 
-.blockQuoteStyle {
+.gameWindow {
     display:block;
-    border-right:dotted 2px #e0e0e0;
-    border-left:dotted 2px #e0e0e0;
+    border-right:dotted 2px #3c8f9f;
+    border-left:dotted 2px #3c8f9f;
     border-radius:10px;
-    background-color: #FFFFFF;
-    margin:0px auto;
-    padding:5px 25px 40px 25px;
+    background-color: #f2fbff;
+    margin:15px auto;
     max-width:500px;
+    padding:25px 35px;
+    line-height:20px
 }
 
 #buttonInitGame {
@@ -54,13 +70,12 @@ p {
     
 }
 
-/*
+
 #buttonResetGame:hover {
     background-color:#fdc68f;
     border:solid 1px #dd7e20;
     color: #dd7e20;
 }
-*/
 
 .containerButtons {
     margin:10px auto;
@@ -68,11 +83,50 @@ p {
     
 }
 h6 {
-    font-family:Verdana, sans-serif;
-    text-align:center;
-    font-weight:normal;
+    font-family:"Arial", sans-serif;
+    text-align:right;
+    font-weight:bolder;
+    font-size:10px;
+    color:#3c8f9f;
 }
 
 .wip {
     text-decoration:line-through;
+}
+
+h4 {
+    font-family:"Arial", sans-serif;
+    font-weight:bolder;
+    text-align:center;
+    font-size:30px;
+    line-height:normal;
+    color: #3c8f9f;
+    margin-bottom:20px;
+
+}
+
+.mainContainer {
+    width:850px;
+    margin:0 auto;
+}
+
+#guessField {
+    display:block;
+    border:solid 1px #3c8f9f;
+    border-radius:10px;
+    font-size:30px;
+    background-color: #ffffff;
+    margin:25px auto 5px auto;
+    width:50px;
+    padding:5px 15px;
+    text-align:center;
+}
+
+#status {
+    text-align:center;
+    
+}
+
+#log {
+    text-align:center;
 }
