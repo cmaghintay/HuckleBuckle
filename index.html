@@ -6,42 +6,60 @@
     <script src="jquery-1.10.2.js"></script>
     <script>
 
+        //GLOBAL VARIABLES
+        
         var key = Math.floor(Math.random()*101);
         console.log("The key for the next round is: " + key);
         
         function pullGuess (){
             
             //VALIDATING GUESS TYPE
+            
             var guess = document.getElementById("guessField").value;
             console.log("The user guessed: " + guess + ".");
-            $("#log").text("The user guessed: " + guess + ".");
             
             //CHECKING GUESS
             
             if (isNaN(guess)){
-                $("#status").text("That's not a number. Please choose a number between 1 and 100.");
+                $("#status").fadeOut(function(){
+                    $("#status").text("That's not a number.").fadeIn();
+            });
             }
-                
             else if (guess>key){
-                $("#status").text("High. Try again.");
-            }
+                $("#status").fadeOut(function(){
+                    $("#status").text("High. Try again.").fadeIn();
+            });            }
             else if (guess<key){
-                $("#status").text("Low. Try again.");
-            }
+                $("#status").fadeOut(function(){
+                    $("#status").text("Low. Try again.").fadeIn();
+            });            }
             else if (guess==key){
                 console.log("User has won.");
-                $("#status").text("Right on! Play again?");
-                if (again == true) {
-                    key = Math.floor(Math.random()*101);
-                    console.log("The key for the next round is: " + key);
-                    }
-                else {
-                    console.log("User has ended game.");
-                };
+                $("#status").fadeOut(function(){
+                    $("#status").text("Right on! Play again?").fadeIn();
+                });                
+                $("#buttonInitGame").fadeToggle(function(){
+                    $("#buttonResetGame").fadeToggle();
+                });
             };
         };
-                        
+
+        //RESET GAME
+        
+        function resetGame(){
+            key = Math.floor(Math.random()*101);
+            console.log("The key for the next round is: " + key);
+            $("#buttonResetGame").fadeToggle(function(){
+                $("#buttonInitGame").fadeToggle();
+            });
+            $("#status").fadeOut(function(){
+                $("#status").text("Enter a number between 0 and 100 below.").fadeIn();
+            });
+            $("#guessField").val(null);
+        };
+        
     </script>
+    
 </head>
 <body>
     <h1>Huckle Buckle Beanstalk</h1>
@@ -49,15 +67,14 @@
         <h6>VERSION 2.</h6>
         <div class="gameWindow">
             <h4>Are you ready to play?</h4>
-            <p id="status">Status</p>
+            <h4 id="status">Enter a number between 0 and 100 below.</h4>
             <div>
                 <input id="guessField" type="text" name="userGuess" placeholder="00">
             </div>
-            <p id="log">Null</p>
         </div>
         <div class="containerButtons">
-            <button id="buttonInitGame" onclick="pullGuess()">Lets Play!</button>
-            <button id="buttonResetGame">Reset Button</button>
+            <button id="buttonInitGame" onclick="pullGuess()">Submit Guess</button>
+            <button id="buttonResetGame" onclick="resetGame()">Reset Button</button>
         </div>
     </div>
 </body>
