@@ -10,12 +10,13 @@
         //VALIDATING GUESS TYPE
         
         var guess = document.getElementById("guessField").value;
-        
+        var isNumber = typeof(guess);
+        console.log("The user entered this type of value: " + isNumber);
         console.log("The user guessed: " + guess + ".");
         
         //CHECKING GUESS
         
-        if (isNaN(guess) || (typeof(guess) !== "number")) {
+        if (isNaN(guess)) {
             $("#guessField").val(null);
             $("#instruct").fadeOut(function() {
                 $("#instruct").text("That's not a number.").fadeIn();
