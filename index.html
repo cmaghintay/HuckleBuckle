@@ -4,70 +4,15 @@
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="jquery-1.10.2.js"></script>
-    <script>
-
-        //GLOBAL VARIABLES
-        
-        var key = Math.floor(Math.random()*101);
-        console.log("The key for the next round is: " + key);
-        
-        function pullGuess (){
-            
-            //VALIDATING GUESS TYPE
-            
-            var guess = document.getElementById("guessField").value;
-            console.log("The user guessed: " + guess + ".");
-            
-            //CHECKING GUESS
-            
-            if (isNaN(guess)){
-                $("#status").fadeOut(function(){
-                    $("#status").text("That's not a number.").fadeIn();
-            });
-            }
-            else if (guess>key){
-                $("#status").fadeOut(function(){
-                    $("#status").text("High. Try again.").fadeIn();
-            });            }
-            else if (guess<key){
-                $("#status").fadeOut(function(){
-                    $("#status").text("Low. Try again.").fadeIn();
-            });            }
-            else if (guess==key){
-                console.log("User has won.");
-                $("#status").fadeOut(function(){
-                    $("#status").text("Right on! Play again?").fadeIn();
-                });                
-                $("#buttonInitGame").fadeToggle(function(){
-                    $("#buttonResetGame").fadeToggle();
-                });
-            };
-        };
-
-        //RESET GAME
-        
-        function resetGame(){
-            key = Math.floor(Math.random()*101);
-            console.log("The key for the next round is: " + key);
-            $("#buttonResetGame").fadeToggle(function(){
-                $("#buttonInitGame").fadeToggle();
-            });
-            $("#status").fadeOut(function(){
-                $("#status").text("Enter a number between 0 and 100 below.").fadeIn();
-            });
-            $("#guessField").val(null);
-        };
-        
-    </script>
-    
+    <script src="hbb.js"></script>
 </head>
 <body>
     <h1>Huckle Buckle Beanstalk</h1>
     <div class="mainContainer">
         <h6>VERSION 2.</h6>
         <div class="gameWindow">
-            <h4>Are you ready to play?</h4>
-            <h4 id="status">Enter a number between 0 and 100 below.</h4>
+            <h4 id="temp">I'm thinking of a number between 0 and 100.</h4>
+            <h5 id="instruct">Enter your guess below.</h5>
             <div>
                 <input id="guessField" type="text" name="userGuess" placeholder="00">
             </div>

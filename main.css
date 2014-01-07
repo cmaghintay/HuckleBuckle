@@ -122,15 +122,12 @@ h4 {
     text-align:center;
 }
 
-#status {
+#instruct {
     text-align:center;
     
 }
 
 #temp {
-    visibility:hidden;
     text-align:center;
-    font-family:monospace;
-    font-size:1em;
-    
+    font-family:sans-serif;
 }
