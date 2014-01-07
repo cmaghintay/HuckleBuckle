@@ -16,7 +16,7 @@
                 alert("Please choose a number between 1 and 100.");
                 game();
             }
-            else {
+            else if (typeof guess == "number") {
                 if (guess>key){
                     alert("High. Try again.");
                     game();
@@ -25,7 +25,7 @@
                     alert("Low. Try again.");
                     game();
                 }
-                else (guess==key)
+                else (guess==key) 
                     console.log("User has won.");
                     var again = confirm("Right on! Play again?");
                     if (again == true) {
@@ -33,8 +33,12 @@
                         console.log("The key for the next round is: " + key);
                         game();
                     }
-                    else
+                    else (again == false) 
                         console.log("User has quit.");
+                        key = Math.floor(Math.random()*101);
+                        console.log("The key for the next round is: " + key);
+            }
+            else {
             }
         }
     </script>
