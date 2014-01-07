@@ -10,28 +10,32 @@
         //VALIDATING GUESS TYPE
         
         var guess = document.getElementById("guessField").value;
+        guess = parseFloat(guess);
+        
         console.log("The user guessed: " + guess + ".");
         
         //CHECKING GUESS
         
         if (isNaN(guess)) {
+            $("#guessField").val(null);
             $("#instruct").fadeOut(function() {
-                $("#instruct").text("That's not a number.").fadeIn(function(){
-                    $("#buttonInitGame").button();
-                });
+                $("#instruct").text("That's not a number.").fadeIn();
             });
         }
-        if (guess > 100){
+        else if (guess > 100){
+            $("#guessField").val(null);
             $("#instruct").fadeOut(function(){
                 $("#instruct").text("Choose a number between 0 and 100.").fadeIn();
             });
         }
         else if (guess>key){
+            $("#guessField").val(null);
             $("#instruct").fadeOut(function(){
                 $("#instruct").text("Guess lower. Try again.").fadeIn();
             });
         }
         else if (guess<key){
+            $("#guessField").val(null);
             $("#instruct").fadeOut(function(){
                 $("#instruct").text("Guess higher. Try again.").fadeIn();
             });
@@ -39,7 +43,7 @@
         else if (guess==key){
             console.log("User has won.");
             $("#instruct").fadeOut(function(){
-                $("#instruct").text("Right on! Play again?").fadeIn();
+                $("#instruct").text("Play again?").fadeIn();
             });               
             $("#buttonInitGame").fadeToggle(function() {
                 $("#buttonResetGame").fadeToggle();
@@ -86,6 +90,12 @@
                 $(this).text("Cold!").fadeIn();
             });
             console.log("Cold");
+        }
+        else if (proximity==0){
+            $("#temp").fadeOut(function(){
+                $(this).text("Right On!").fadeIn();
+            });
+            console.log("Win!");
         }
         else {
             $("#temp").fadeOut(function(){

@@ -7,19 +7,23 @@
     <script src="hbb.js"></script>
 </head>
 <body>
-    <h1>Huckle Buckle Beanstalk</h1>
-    <div class="mainContainer">
-        <h6>VERSION 2.</h6>
-        <div class="gameWindow">
-            <h4 id="temp">I'm thinking of a number between 0 and 100.</h4>
-            <h5 id="instruct">Enter your guess below.</h5>
-            <div>
-                <input id="guessField" type="text" name="userGuess" placeholder="00">
-            </div>
+    <div id="gameContainer">
+        <div class="header">
+            <h1>Huckle Buckle Beanstalk</h1>
+            <h6>VERSION 2.</h6>
         </div>
-        <div class="containerButtons">
-            <button id="buttonInitGame" onclick="pullGuess()">Submit Guess</button>
-            <button id="buttonResetGame" onclick="resetGame()">Reset Button</button>
+        <div class="mainContainer">
+            <div class="gameWindow">
+                <h4 id="temp">Alright. So, I'm thinking of a number between 0 and 100.</h4>
+                <h5 id="instruct">Enter your guess below.</h5>
+                <div>
+                    <input id="guessField" type="text" name="userGuess" placeholder="00">
+                </div>
+            </div>
+            <div class="containerButtons">
+                <button id="buttonInitGame" onclick="pullGuess()">Submit Guess</button>
+                <button id="buttonResetGame" onclick="resetGame()">Reset</button>
+            </div>
         </div>
     </div>
 </body>
