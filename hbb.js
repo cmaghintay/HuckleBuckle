@@ -9,7 +9,7 @@
         
         //VALIDATING GUESS TYPE
         
-        var guess = document.getElementById("guessField").value;
+        var guess = $("#guessField").val();
         var isNumber = typeof(guess);
         console.log("The user entered this type of value: " + isNumber);
         console.log("The user guessed: " + guess + ".");
@@ -117,6 +117,9 @@
             $("#instruct").text("Enter a number between 0 and 100 below.").fadeIn();
         });
         $("#guessField").val(null);
+        $("#temp").fadeOut(function(){
+            $(this).text("Right On!").fadeIn();
+        });
     };
         
 //});
