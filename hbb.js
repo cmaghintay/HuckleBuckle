@@ -1,11 +1,18 @@
-//$(document).ready(function(){
+$(document).ready(function(){
     
+    //BUTTON FUNCTIONS    
+
+    
+        
     //GLOBAL VARIABLES
     
     var key = Math.floor(Math.random() * 101);
     console.log("The key for the next round is: " + key);
+    var $buttonInitGame = $("#buttonInitGame");
+    var $guessField = $("#guessField");
     
-    function pullGuess() {
+
+    $buttonInitGame.click(function(){
         
         //VALIDATING GUESS TYPE
         
@@ -13,11 +20,13 @@
         var isNumber = typeof(guess);
         console.log("The user entered this type of value: " + isNumber);
         console.log("The user guessed: " + guess + ".");
+        guess = parseFloat(guess);
         
         //CHECKING GUESS
         
         if (isNaN(guess)) {
             $("#guessField").val(null);
+            
             $("#instruct").fadeOut(function() {
                 $("#instruct").text("That's not a number.").fadeIn();
             });
@@ -103,7 +112,7 @@
             });
         }
         
-    };
+    });
     
     //RESET GAME
     
@@ -121,5 +130,6 @@
             $(this).text("Right On!").fadeIn();
         });
     };
+    
         
-//});
+});
