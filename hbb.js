@@ -20,7 +20,6 @@ $(document).ready(function(){
         var isNumber = typeof(guess);
         console.log("The user entered this type of value: " + isNumber);
         console.log("The user guessed: " + guess + ".");
-        guess = parseFloat(guess);
         
         //CHECKING GUESS
         
