@@ -1,8 +1,6 @@
 $(document).ready(function(){
     
     //BUTTON FUNCTIONS    
-
-    
         
     //GLOBAL VARIABLES
     
@@ -11,8 +9,12 @@ $(document).ready(function(){
     var $buttonInitGame = $("#buttonInitGame");
     var $guessField = $("#guessField");
     
+    $("#guessField").keydown(function () {
+        if (event.which == 13) 
+            playFunction();
+    });
 
-    $buttonInitGame.click(function(){
+        function playFunction(){
         
         //VALIDATING GUESS TYPE
         
@@ -111,7 +113,7 @@ $(document).ready(function(){
             });
         }
         
-    });
+    };
     
     //RESET GAME
     
