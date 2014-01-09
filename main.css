@@ -38,7 +38,7 @@ h1 {
     font-family:"Arial", sans-serif;
     font-size:5em;
     color:#000;
-    margin:0 auto 5px auto;
+    margin:0 auto 5px -6px;
     line-height:65px;
 }
 
@@ -77,13 +77,16 @@ p {
 }
 
 #buttonResetGame {
+    width:350px;
+    border-top-right-radius:20px;
+    border-bottom-left-radius:20px;
     display:none;
     background-color:#ffffff;
-    border:dotted 1px #279a0b;
+    border:dotted 1px #dd7e20;
     padding: 10px;
     text-align:center;
     font-family:sans-serif;
-    color: #279a0b;
+    color: #dd7e20;
     
 }
 
